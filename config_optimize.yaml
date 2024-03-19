@@ -1,0 +1,23 @@
+load_model: "Mar06_19-48-00"
+save_path: "data/Al-Cr-Fe_traj/01_08_01.txt"
+num_steps: 100
+
+optimizer:
+  initial_lr: 1.0
+  lr_decay: 0.5
+  t: 0.0
+  patience: 10
+
+model:  
+  # Roost
+  robust: False
+  task_dict: ['regression']
+  # elem_emb_len: 
+  elem_fea_len: 128
+  n_graph: 3
+  elem_heads: 3
+
+start_composition:
+  Al: 0.1
+  Cr: 0.8
+  Fe: 0.1

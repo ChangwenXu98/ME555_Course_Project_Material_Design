@@ -1,0 +1,122 @@
+# gpu: 'cuda'
+gpu: 'cpu'
+epochs: 100
+# optimizer: "adamw"
+lr: 1e-4
+min_lr: 1e-7
+weight_decay: 0.0
+warmup_epochs: 5
+patience_epochs: 5
+# warmup_ratio: 0.1
+# load_model: None
+# load_model: "runs/pretrain_gen_mlm_05_1M"
+# load_model: "runs/pretrain_gen_mlm_015_1M"
+# load_model: "runs/pretrain_gen_lpp_1M"
+# load_model: "runs/checkpoint-46424"
+# load_model: "runs/pretrain_gen_mlm_015_1M_1_1"
+# load_model: "Mar05_14-47-32_ehull"
+load_model: "Mar06_19-48-00"
+log_every_n_steps: 50
+fold_num: 5
+# task: "generator"
+save_path: "data/tertiary_AlCrFe_results.csv"
+
+model:
+  # Bert
+  # max_position_embeddings: 64
+  # num_attention_heads: 1
+  # num_hidden_layers: 1
+  # hidden_dropout_prob: 0.1
+  # attention_probs_dropout_prob: 0.1
+  # dropout: 0.1
+
+  # # Multi-modal
+  # structure_net_params:
+  #   # orig_atom_fea_len:
+  #   # nbr_fea_len:
+  #   atom_fea_len: 64
+  #   n_conv: 3
+  #   h_fea_len: 128
+  #   n_h: 1
+  #   classification: False
+  # composition_net_params:
+  #   robust: True
+  #   task_dict: ['regression']
+  #   # elem_emb_len: 
+  #   elem_fea_len: 128
+  #   n_graph: 3
+  #   elem_heads: 3
+  # weight_net_params:
+  #   input_dim: 128
+  #   output_dim: 1
+  #   hidden_layer_dims: [128,64]
+  # output_net_params:
+  #   input_dim: 128
+  #   output_dim: 1
+  #   hidden_layer_dims: [128,64]
+
+  # Roost
+  robust: False
+  task_dict: ['regression']
+  # elem_emb_len: 
+  elem_fea_len: 128
+  n_graph: 3
+  elem_heads: 3
+
+  # # CGCNN
+  # # orig_atom_fea_len:
+  # # nbr_fea_len:
+  # atom_fea_len: 64
+  # n_conv: 3
+  # h_fea_len: 128
+  # n_h: 1
+  # classification: False
+
+dataset:
+  # dataset_name: 'matbench_log_gvrh'
+  # # dataset_name: 'matbench_mp_e_form'
+  # # dataset_name: 'data/cond/slices'
+  # batch_size: 16
+  # num_workers: 0
+  # vocab_path: './tokenizer/vocab.txt'
+  # blocksize: 1024
+  # map_path: './data/mb_slices_map.json'
+  
+  # # dataset_name: 'matbench_log_gvrh'
+  # # dataset_name: 'matbench_mp_e_form'
+  # # dataset_name: 'data/cond/slices'
+  # # dataset_name: 'matbench_dielectric'
+  # dataset_name: 'matbench_dielectric'
+  # batch_size: 64
+  # num_workers: 0
+  # vocab_path: './tokenizer_gen_1M'
+  # blocksize: 64
+  # # map_path: './data/gen_sg_wyck_map.json'
+  # map_path: './data/gen_map_large.json'
+
+  # dataset_name: 'matbench_log_gvrh'
+  # # dataset_name: 'matbench_mp_e_form'
+  # # structure_file: "data/structure_bimodal.json"
+  # batch_size: 64
+  # num_workers: 0
+
+  # dataset_name: 'matbench_log_gvrh'
+  # # # dataset_name: 'matbench_mp_e_form'
+  # batch_size: 64
+  # num_workers: 0
+
+  # dataset_name: 'matbench_log_gvrh'
+  # # structure_file: "data/structure.json"
+  # # target_file: "data/target.json"
+  # batch_size: 64
+  # num_workers: 4
+
+  # dataset_name: 'data/cond_cit_rt.csv'
+  # dataset_name: 'data/pred.csv'
+  # dataset_name: 'data/mb_e_form.csv'
+  # dataset_name: "data/Sm-Fe-Co.csv"
+  dataset_name: "data/tertiary_AlCrFe.csv"
+  batch_size: 64
+  n_splits: 5
+  seed: 0
+  num_workers: 0

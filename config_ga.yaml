@@ -1,0 +1,18 @@
+load_model: "Mar06_19-48-00"
+
+optimizer:
+  pop_size: 200
+  num_generations: 200
+  crossover_rate: 0.8
+  element_mutation_rate: 0.1
+  ratio_mutation_rate: 0.1
+
+model:  
+  # Roost
+  robust: False
+  task_dict: ['regression']
+  # elem_emb_len: 
+  elem_fea_len: 128
+  n_graph: 3
+  elem_heads: 3
+
